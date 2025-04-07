@@ -2,7 +2,10 @@ import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "./ui/button";
 import { ArrowRight, ArrowRightIcon } from "lucide-react";
-
+import {
+  RegisterLink,
+  LoginLink,
+} from "@kinde-oss/kinde-auth-nextjs/components";
 const Navbar = () => {
   const user = undefined;
   const isAdmin = false;
