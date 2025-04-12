@@ -36,8 +36,16 @@ function ReviewColumn({
   msPerPixel?: number;
 }) {
   const columnRef = useRef<HTMLDivElement | null>(null);
-  return <div></div>;
+  const [columnHeight, setColumnHeight] = useState(0);
+  return (
+    <div
+      ref={columnRef}
+      className={cn("animate-marque space-y-8 py-4", className)}
+      style={{ "--marquee-duration": duration } as React.CSSProperties}
+    ></div>
+  );
 }
+
 function ReviewGrid() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.4 });
