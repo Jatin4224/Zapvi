@@ -1,11 +1,14 @@
 "use client ";
-
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import Dropzone, { FileRejection } from "react-dropzone";
 
 const Page = () => {
   const [isDragOver, setIsDragOver] = useState<boolean>(false);
+  const onDropAccepted = () => {
+    console.log("accepted");
+  };
+  const onDropRejected = () => {};
   return (
     <div
       className={cn(
@@ -15,7 +18,28 @@ const Page = () => {
         }
       )}
     >
-      <div className="relative flex flex-1 flex-col items-center w-full"></div>
+      <div className="relative flex flex-1 flex-col items-center justify-center w-full">
+        <Dropzone
+          onDropAccepted={onDropAccepted}
+          onDropRejected={onDropRejected}
+          accept={{
+            "image/png": [".png"],
+            "image/jpeg": [".jpeg"],
+            "image/jpg": [".jpg"],
+          }}
+          onDragEnter={() => setIsDragOver(true)}
+          onDragLeave={() => setIsDragOver(false)}
+        >
+          {({ getRootProps, getInputProps }) => (
+            <div
+              className="h-full w-full flex-1 flex flex-col items-center justify center"
+              {...getRootProps()}
+            >
+              <input {...getInputProps()} />
+            </div>
+          )}
+        </Dropzone>
+      </div>
     </div>
   );
 };
