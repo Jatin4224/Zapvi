@@ -2,7 +2,6 @@ import MaxWidthWrapper from "@/components/ui/MaxWidthWrapper";
 import Phone from "@/components/ui/Phone";
 import { Icons } from "@/components/ui/Icons";
 import { Check, Star } from "lucide-react";
-import { Reviews } from "@/components/ui/Reviews";
 
 export default function Home() {
   return (
@@ -178,9 +177,7 @@ export default function Home() {
           </div>
         </MaxWidthWrapper>
         {/* ANIMATED REVIEWS */}
-        <div className="pt-16">
-          <Reviews />
-        </div>
+        <div className="pt-16"></div>
       </section>
     </div>
   );
